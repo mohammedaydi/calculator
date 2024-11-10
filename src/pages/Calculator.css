@@ -1,0 +1,36 @@
+.calculator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--yellow);
+  width: 60vw;
+  max-width: 500px;
+}
+
+.calculator-input {
+  width: 100%;
+}
+
+.calculator-input input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 100;
+  background-color: transparent;
+}
+
+.calculator-input input:focus {
+  border: 1px solid var(--black);
+}
