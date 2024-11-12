@@ -17,7 +17,8 @@ const Calculator: React.FC = () => {
       } else if (value === "<" || value.toLowerCase() === "backspace") {
         equation.current.innerText = equation.current.innerText.slice(0, -1);
       } else if (value === "=" || value.toLowerCase() === "enter") {
-        calculateResult(equation.current.innerText);
+        const result = calculateResult(equation.current.innerText);
+        equation.current.innerText = result;
       } else if (!symbols.includes(value)) {
         return;
       } else {
@@ -28,8 +29,6 @@ const Calculator: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener("keydown", (event) => {
-      console.log(`Key pressed: ${event.key}`);
-      console.log(`Key code: ${event.code}`);
       manageTextInput(event.key);
     });
   }, []);

@@ -31,7 +31,6 @@ const calculateSection = (equation: string): number => {
   let pmOperations: operation[] = [];
 
   const level1 = equation.split("+");
-  console.log(level1);
   level1?.forEach((part) => {
     let arr: operation[] = [{ part: part, sign: "+" }];
 
@@ -70,14 +69,10 @@ const calculateSection = (equation: string): number => {
         }
       }
       if (flag === 0) {
-        console.log("--------------------");
-        console.log({ sign: arr[0].sign, part: arr[0].part });
-        console.log("--------------------");
         pmOperations.push({ sign: arr[0].sign, part: arr[0].part });
       }
 
       arr.shift();
-      console.log(arr);
     }
   });
 
@@ -122,7 +117,7 @@ const calculateSection = (equation: string): number => {
       mulOperations.forEach((item) => {
         sectionResult *= item;
       });
-      console.log(part + " ------ " + sectionResult.toString());
+
       finalOps.push({ part: sectionResult.toString(), sign: sign });
     } else if (part.includes("/")) {
       const divs = part.split("/");
@@ -146,7 +141,6 @@ const calculateSection = (equation: string): number => {
   let finalRes = 0;
 
   finalOps.forEach(({ part, sign }) => {
-    console.log(part);
     finalRes += sign === "+" ? +part : +-part;
   });
   return finalRes;
@@ -161,6 +155,11 @@ const modifyEquation = (
   let part1 = equation.slice(0, b1);
   let part2 = value.toString();
   let part3 = equation.slice(b2 + 1);
+
+  if (equation[b1 - 1] >= "0" && equation[b1 - 1] <= "9") {
+    return part1 + "x" + part2 + part3;
+  }
+
   return part1 + part2 + part3;
 };
 
@@ -194,7 +193,7 @@ export const calculateResult = (equation: string) => {
   const bracketFreeEquation = findBrackets(equation);
   let result = 0;
   if (bracketFreeEquation) {
-    console.log(calculateSection(bracketFreeEquation));
+    result = calculateSection(bracketFreeEquation);
   }
 
   return result.toString();

@@ -1,4 +1,4 @@
-import Props from "../../models/CalculatorActionsProps";
+import { Props } from "../../types/CalculatorActionsProps";
 import "./CalculatorActions.css";
 
 const elements: (string | JSX.Element)[] = [
