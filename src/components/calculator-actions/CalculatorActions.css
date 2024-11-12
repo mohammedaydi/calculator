@@ -1,0 +1,40 @@
+.actions-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 70px);
+  gap: 2px;
+  color: white;
+  width: 100%;
+}
+.calculator-input p {
+  width: 100%;
+  min-height: 80px;
+  max-height: 80px;
+  padding: 2rem 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.grid-item {
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  background-color: transparent;
+}
+
+.grid-item span {
+  background-color: var(--black);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  color: var(--yellow);
+  padding: 0.7rem 1rem;
+}
+
+.eq {
+  grid-row: 6;
+  grid-column: 1 / span 4;
+  background-color: var(--black);
+  color: var(--yellow);
+}
